@@ -1,6 +1,6 @@
 from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import View, ListView, DetailView
+from django.views.generic import ListView, DetailView
 from message.models import Message
 
 
