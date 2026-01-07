@@ -7,19 +7,19 @@ from mail_recipient.models import Recipient
 class RecipientCreateView(CreateView):
     model = Recipient
     fields = ['email', 'full_name', 'comment']
-    template_name = 'recipient/recipient_form.html'
-    success_url = reverse_lazy('recipient:recipients')
+    template_name = 'mail_recipient/recipient_form.html'
+    success_url = reverse_lazy('mail_recipient:recipients_list')
 
 
 class RecipientListView(ListView):
     model = Recipient
-    template_name = 'recipient/recipient_list.html'
+    template_name = 'mail_recipient/recipients_list.html'
     context_object_name = 'recipients'
 
 
 class RecipientDetailView(DetailView):
     model = Recipient
-    template_name = 'recipient/recipient_detail.html'
+    template_name = 'mail_recipient/recipient_detail.html'
     context_object_name = 'recipient'
 
 
@@ -28,13 +28,13 @@ class RecipientUpdateView(UpdateView):
     fields = ['email', 'full_name', 'comment']
 
     def get_success_url(self):
-        return reverse('recipient:recipient_detail', kwargs={'pk' : self.object.pk})
+        return reverse('mail_recipient:detail_recipient', kwargs={'pk' : self.object.pk})
 
 
 class RecipientDeleteView(DeleteView):
     model = Recipient
-    template_name = 'recipient/recipient_confirm_delete.html'
-    success_url = reverse_lazy('recipient:recipients')
+    template_name = 'mail_recipient/recipient_confirm_delete.html'
+    success_url = reverse_lazy('mail_recipient:recipients_list')
 
 
 

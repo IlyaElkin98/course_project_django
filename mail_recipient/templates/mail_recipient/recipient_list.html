@@ -1,0 +1,22 @@
+{% extends 'mail_recipient/base.html' %}
+
+{% block title %}Получатели рассылки{% endblock %}
+
+{% block content %}
+{% include 'mail_recipient/header.html' %}
+<h1 class="mb-4">Список получателей</h1>
+{% for recipient in object_list %}
+    <div class="card mb-3" style="max-width: 1200px">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <a href="{% url 'mail_recipient:detail_recipient' recipient.pk %}">{{ recipient.email }}</a>
+                    <a href="{% url 'mail_recipient:update_recipient' recipient.pk %}" class="btn btn-sm btn-secondary ml-3">Редактировать</a>
+                    <a href="{% url 'mail_recipient:delete_recipient' recipient.pk %}" class="btn btn-sm btn-danger ml-1">Удалить</a>
+                    <p>Содержание: {{ recipient.comment }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

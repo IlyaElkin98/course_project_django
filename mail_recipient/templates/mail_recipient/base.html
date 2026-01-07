@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}База{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <style>.top-right1 {position: absolute; top: 20px;right: 10px;background-color: padding: 5px; border-radius: 5px;}</style>
+    <style>.top-right2 {position: absolute; top: 20px;right: 70px;background-color: padding: 5px; border-radius: 5px;}</style>
+    <style>.top-right3 {position: absolute; top: 20px;right: 175px;background-color: padding: 5px; border-radius: 5px;}</style>
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Добро пожаловать!</h5>
+    <nav class="ms-5">
+        <a class="p-2 btn btn-outline-primary" href="{% url 'mail_recipient:recipients_list' %}">Клиенты</a>
+        <a class="p-2 btn btn-outline-primary" href="http://127.0.0.1:8000/catalog/contacts/">Сообщение</a>
+        <a class="p-2 btn btn-outline-primary" href="http://127.0.0.1:8000/blog/blogs/">Рассылки</a>
+        <a class="top-right2" href="http://127.0.0.1:8000/blog/blogs/">Регистрация</a>
+        <a class="top-right3" href="http://127.0.0.1:8000/blog/blogs/">Войти</a>
+        <a class="top-right1" href="http://127.0.0.1:8000/blog/blogs/">Выйти</a>
+    </nav>
+</div>
+<div class="container mt-5">
+    {% block content %}{% endblock %}
+</div>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
