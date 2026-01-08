@@ -1,0 +1,26 @@
+{% extends 'message/base.html' %}
+{% block title %}Создание рассылки{% endblock %}
+
+{% block content %}
+{% include 'message/header.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <form class="row" method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-body">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </div>
+                </div>
+                {% if object %}
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                {% else %}
+                     <button type="submit" class="btn btn-primary">Создать</button>
+                {% endif %}
+                <a href="{% url 'newsletter:newsletters_list' %}" class="btn btn-secondary">Отмена</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
