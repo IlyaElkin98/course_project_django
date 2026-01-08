@@ -1,0 +1,10 @@
+{% extends 'message/base.html' %}
+{% block title %}Детали сообщения{% endblock %}
+
+{% block content %}
+{% include 'message/header.html' %}
+<div class="container mt-5">
+    <h1 class="mb-4">Тема: {{ object.topic_letter }}</h1>
+    <p>{{ object.body_letter }}</p>
+</div>
+{% endblock %}

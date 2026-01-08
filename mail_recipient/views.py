@@ -7,7 +7,7 @@ from mail_recipient.models import Recipient
 class RecipientCreateView(CreateView):
     model = Recipient
     fields = ['email', 'full_name', 'comment']
-    template_name = 'mail_recipient/recipient_form.html'
+    template_name = 'mail_recipient/message_form.html'
     success_url = reverse_lazy('mail_recipient:recipients_list')
 
 
@@ -19,7 +19,7 @@ class RecipientListView(ListView):
 
 class RecipientDetailView(DetailView):
     model = Recipient
-    template_name = 'mail_recipient/recipient_detail.html'
+    template_name = 'mail_recipient/detail_message.html'
     context_object_name = 'recipient'
 
 
@@ -33,7 +33,7 @@ class RecipientUpdateView(UpdateView):
 
 class RecipientDeleteView(DeleteView):
     model = Recipient
-    template_name = 'mail_recipient/recipient_confirm_delete.html'
+    template_name = 'mail_recipient/confirm_delete_message.html'
     success_url = reverse_lazy('mail_recipient:recipients_list')
 
 

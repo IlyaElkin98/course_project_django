@@ -8,7 +8,7 @@ class MessageCreateView(CreateView):
     model = Message
     fields = ['topic_letter', 'body_letter']
     template_name = 'message/message_form.html'
-    success_url = 'message:messages'
+    success_url = reverse_lazy('message:messages')
 
 
 class MessageListView(ListView):
@@ -27,11 +27,11 @@ class MessageUpdateView(UpdateView):
 
 class MessageDetailView(DetailView):
     model = Message
-    template_name = 'message/detail_message'
+    template_name = 'message/detail_message.html'
     context_object_name = 'message'
 
 
 class MessageDeleteView(DeleteView):
     model = Message
     template_name = 'message/confirm_delete_message.html'
-    success_url = reverse_lazy('message:messages')
+    success_url = reverse_lazy('message:messages_list')
