@@ -1,17 +1,14 @@
 from django.db import models
 
+
 class Recipient(models.Model):
     email = models.CharField(
-        verbose_name='Электронная почта',
-        help_text='Введите электронную почту'
+        verbose_name="Электронная почта", help_text="Введите электронную почту"
     )
 
-    full_name = models.CharField(
-        verbose_name="Ф.И.О.",
-        help_text='Введите ФИО'
-    )
+    full_name = models.CharField(verbose_name="Ф.И.О.", help_text="Введите ФИО")
 
-    comment = models.TextField(
-        verbose_name='Комментарий'
-    )
+    comment = models.TextField(verbose_name="Комментарий")
 
+    def __str__(self):
+        return self.full_name

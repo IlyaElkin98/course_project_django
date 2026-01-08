@@ -1,9 +1,9 @@
-{% extends 'mail_recipient/base.html' %}
+{% extends 'message/base.html' %}
 
 {% block title %}Получатели рассылки{% endblock %}
 
 {% block content %}
-{% include 'mail_recipient/header.html' %}
+{% include 'message/header.html' %}
 <h1 class="mb-4">Список получателей</h1>
 {% for recipient in object_list %}
     <div class="card mb-3" style="max-width: 1200px">

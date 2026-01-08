@@ -1,8 +1,8 @@
-{% extends 'mail_recipient/base.html' %}
+{% extends 'message/base.html' %}
 {% block title %}Детали клиента{% endblock %}
 
 {% block content %}
-{% include 'mail_recipient/header.html' %}
+{% include 'message/header.html' %}
 <div class="container mt-5">
     <h1 class="mb-4">{{ object.full_name }}</h1>
     <p>Электронная почта: {{ object.email }}</p>
