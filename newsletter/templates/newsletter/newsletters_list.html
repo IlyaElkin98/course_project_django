@@ -13,6 +13,7 @@
                     <a href="{% url 'newsletter:detail_newsletter' newsletter.pk %}">{{ newsletter.message }}</a>
                     <a href="{% url 'newsletter:update_newsletter' newsletter.pk %}" class="btn btn-sm btn-secondary ml-3">Редактировать</a>
                     <a href="{% url 'newsletter:delete_newsletter' newsletter.pk %}" class="btn btn-sm btn-danger ml-1">Удалить</a>
+                    <a href="{% url 'newsletter:send_newsletter' newsletter.pk %}" class="btn btn-sm btn-primary ml-1">Отправить</a>
                     <p>Статус: {{ newsletter.status }}</p>
                 </div>
             </div>
