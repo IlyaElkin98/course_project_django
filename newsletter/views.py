@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
 
 from .forms import NewsletterForm
@@ -25,10 +25,16 @@ class NewsletterDetailView(DetailView):
     template_name = "newsletter/detail_newsletter.html"
     context_object_name = "newsletter"
 
+    def get(self, request, pk):
+        newsletter = get_object_or_404(Newsletter, pk=pk)
+        newsletter.update_status()
+        return render(request, 'newsletter/detail_newsletter.html', {'newsletter': newsletter})
+
 
 class NewsletterUpdateView(UpdateView):
     model = Newsletter
-    fields = ["start_time", "end_time", "status", "messages", "recipients"]
+    form_class = NewsletterForm
+
 
     def get_success_url(self):
         return reverse("newsletter:detail_newsletter", kwargs={"pk": self.object.pk})
@@ -38,3 +44,4 @@ class NewsletterDeleteView(DeleteView):
     model = Newsletter
     template_name = "newsletter/confirm_delete_newsletter.html"
     success_url = reverse_lazy("newsletter:newsletters_list")
+

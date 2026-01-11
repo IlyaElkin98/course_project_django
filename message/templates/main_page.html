@@ -1,0 +1,14 @@
+{% extends 'message/base.html' %}
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+{% include 'message/header.html' %}
+    <h1>Показатели рассылок</h1>
+    <ul>
+        <li>Общее количество созданных рассылок: {{ total_mailings }}</li>
+        <li>Количество активных рассылок: {{ active_mailings }}</li>
+        <li>Количество уникальных получателей: {{ unique_recipients }}</li>
+    </ul>
+</body>
+</html>
+{% endblock %}

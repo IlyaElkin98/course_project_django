@@ -4,7 +4,10 @@
 {% block content %}
 {% include 'message/header.html' %}
 <div class="container mt-5">
-    <h1 class="mb-4">Тема: {{ object.topic_letter }}</h1>
-    <p>{{ object.body_letter }}</p>
+    <p>Дата и время начало отправки: {{ newsletter.start_time }}</p>
+    <p>Дата и время окончания отправки: {{ newsletter.end_time }}</p>
+    <p>Статус: {{ newsletter.status }}</p>
+    <p>Сообщение: {{ newsletter.message }}</p>
+    <p>Получатели: {{ newsletter.recipients }}</p>
 </div>
 {% endblock %}
