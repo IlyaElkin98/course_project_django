@@ -37,9 +37,9 @@ def email_varification(request, token):
     user = get_object_or_404(User, token=token)
     user.is_active = True
     user.save()
-    return redirect(reverse(''))
+    return redirect(reverse('user:login'))
 
 
 def custom_logout(request):
     logout(request)
-    return redirect('')
+    return redirect('main:main_page')
