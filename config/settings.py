@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "mail_recipient",
     "message",
     "newsletter",
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -109,9 +110,9 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = '/'
 
-LOGOUT_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'user.User'
 
