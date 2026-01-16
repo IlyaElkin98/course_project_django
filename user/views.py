@@ -8,6 +8,8 @@ from django.views.generic import CreateView
 from user.forms import UserRegisterForm
 from user.models import User
 from config.settings import EMAIL_HOST_USER
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
+from user.forms import CustomPasswordResetForm, CustomSetPasswordForm
 
 
 class UserCreateView(CreateView):
@@ -43,3 +45,16 @@ def email_varification(request, token):
 def custom_logout(request):
     logout(request)
     return redirect('main:main_page')
+
+
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'custom_registration/password_reset.html'
+    email_template_name = 'custom_registration/password_reset_email.html'
+    form_class = CustomPasswordResetForm
+    success_url = reverse_lazy('user:password_reset_done')
+
+
+class CustomUserPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'custom_registration/password_reset_confirm.html'
+    success_url = reverse_lazy('user:password_reset_complete')
+    form_class = CustomSetPasswordForm
